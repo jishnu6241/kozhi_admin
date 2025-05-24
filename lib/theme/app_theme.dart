@@ -11,11 +11,11 @@ const Color cardBorderColor = Color(0xFFD8D8D8);
 const Color cardFocusBorderColor = Color.fromARGB(255, 203, 203, 203);
 const Color iconColor = Color(0xFF566273);
 // Primary color (Blue): Used for key interactive elements like buttons, links, and selected states
-const Color primaryColor = Color(0xFFD8204C);
-const Color secondaryColor = Color(0xFFFFFFFF);
+const Color primaryColor = Color(0xFFFFA500);
+const Color secondaryColor = Color(0xFF000000);
 
 // Tertiary color (Gray): Used for less important UI elements like disabled states or subtle details
-const tertiaryColor = Color(0xFFF0F0F0);
+const tertiaryColor = Color(0xFFFFFFFF);
 
 // Accent color (Yellow): Used to highlight important information like warnings, success messages, or interactive elements
 const accentColor = Color(0xFFFFD700);
@@ -27,16 +27,21 @@ const surfaceColor = Color(0xFFFFFFFF);
 const errorColor = Color(0xFFB00020);
 
 // Text colors that contrast with the background colors
-const onprimaryColor =
-    Color(0xFFFFFFFF); // Text color used on primary (blue) color background
-const onSecondaryColor =
-    Color(0xFF303030); // Text color used on secondary (black) color background
-const onTertiaryColor =
-    Color(0xFFFFFFFF); // Text color used on tertiary (gray) color background
-const onSurfaceColor =
-    Color(0xFF7A7A7A); // Text color used on surface (white) color
-const onErrorColor =
-    Color(0xFFFFFFFF); // Text color used on error (red) color background
+const onprimaryColor = Color(
+  0xFFFFFFFF,
+); // Text color used on primary (blue) color background
+const onSecondaryColor = Color(
+  0xFF191919,
+); // Text color used on secondary (black) color background
+const onTertiaryColor = Color(
+  0xFFFFFFFF,
+); // Text color used on tertiary (gray) color background
+const onSurfaceColor = Color(
+  0xFF7A7A7A,
+); // Text color used on surface (white) color
+const onErrorColor = Color(
+  0xFFFFFFFF,
+); // Text color used on error (red) color background
 
 const Color outlineColor = Color(0xFFE5E5E5); //border color
 const Color onSecondaryContainer = Color(0xFF000000); //text color
@@ -49,9 +54,7 @@ ThemeData appTheme = ThemeData(
   scaffoldBackgroundColor: backgroundColor,
   dialogBackgroundColor: backgroundColor,
   dividerColor: dividerColor,
-  dividerTheme: const DividerThemeData(
-    color: dividerColor,
-  ),
+  dividerTheme: const DividerThemeData(color: dividerColor),
   textTheme: const TextTheme(
     labelLarge: TextStyle(color: onSecondaryColor),
     labelMedium: TextStyle(color: onSecondaryColor),
@@ -86,53 +89,36 @@ ThemeData appTheme = ThemeData(
   appBarTheme: const AppBarTheme(
     color: backgroundColor,
     centerTitle: true,
-    iconTheme: IconThemeData(
-      color: iconColor,
-    ),
+    iconTheme: IconThemeData(color: iconColor),
   ),
-  iconTheme: const IconThemeData(
-    color: iconColor,
-  ),
+  iconTheme: const IconThemeData(color: iconColor),
   inputDecorationTheme: InputDecorationTheme(
     isDense: true,
     suffixIconColor: iconColor,
     prefixIconColor: iconColor,
     floatingLabelBehavior: FloatingLabelBehavior.auto,
-    contentPadding: const EdgeInsets.symmetric(
-      vertical: 5,
-      horizontal: 8,
-    ),
+    contentPadding: const EdgeInsets.symmetric(vertical: 5, horizontal: 8),
     fillColor: cardBackgroundColor,
     filled: true,
     border: OutlineInputBorder(
       borderRadius: BorderRadius.circular(8),
-      borderSide: const BorderSide(
-        color: cardBorderColor,
-      ),
+      borderSide: const BorderSide(color: cardBorderColor),
     ),
     enabledBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(8),
-      borderSide: const BorderSide(
-        color: cardBorderColor,
-      ),
+      borderSide: const BorderSide(color: cardBorderColor),
     ),
     focusedBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(8),
-      borderSide: const BorderSide(
-        color: cardFocusBorderColor,
-      ),
+      borderSide: const BorderSide(color: cardFocusBorderColor),
     ),
     focusedErrorBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(8),
-      borderSide: BorderSide(
-        color: Colors.red[700]!,
-      ),
+      borderSide: BorderSide(color: Colors.red[700]!),
     ),
     disabledBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(8),
-      borderSide: const BorderSide(
-        color: cardBorderColor,
-      ),
+      borderSide: const BorderSide(color: cardBorderColor),
     ),
   ),
 );
