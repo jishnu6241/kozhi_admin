@@ -42,6 +42,8 @@ dependencies:
   bloc: ^9.0.0
   meta: ^1.15.0
   data_table_2: ^2.5.18
+  provider: ^6.1.5
+  google_fonts: ^6.2.1
 
 dev_dependencies:
   flutter_test:
