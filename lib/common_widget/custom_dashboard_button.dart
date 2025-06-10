@@ -14,7 +14,7 @@ class CustomDashboardButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right: 20),
+      padding: const EdgeInsets.only(right: 15),
       child: GestureDetector(
         onTap: onTap,
         child: Material(

@@ -6,36 +6,33 @@ class Dashboard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            CustomDashboardCard(
-              label: 'Orders',
-              count: '45111',
-              icon: Icons.border_all,
-            ),
-            CustomDashboardCard(
-              label: 'On Progress',
-              count: '45111',
-              icon: Icons.work_history_outlined,
-            ),
-            CustomDashboardCard(
-              label: 'Ready to Delivey',
-              count: '45111',
-              icon: Icons.check_circle_outline,
-            ),
-            CustomDashboardCard(
-              label: 'Total Income',
-              count: '45111',
-              icon: Icons.paid_outlined,
-            ),
-          ],
-        ),
-      ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 40),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: const [
+          CustomDashboardCard(
+            label: 'Orders',
+            count: '45111',
+            icon: Icons.border_all,
+          ),
+          CustomDashboardCard(
+            label: 'On Progress',
+            count: '45111',
+            icon: Icons.work_history_outlined,
+          ),
+          CustomDashboardCard(
+            label: 'Ready to Delivery',
+            count: '45111',
+            icon: Icons.check_circle_outline,
+          ),
+          CustomDashboardCard(
+            label: 'Total Income',
+            count: '45111',
+            icon: Icons.paid_outlined,
+          ),
+        ],
+      ),
     );
   }
 }

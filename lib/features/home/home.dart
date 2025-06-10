@@ -7,6 +7,8 @@ import 'package:kozhi_admin/features/Order/order.dart';
 import 'package:kozhi_admin/features/Shops/shops.dart';
 import 'package:kozhi_admin/features/Users/users.dart';
 import 'package:kozhi_admin/features/dashboard/dashboard.dart';
+import 'package:kozhi_admin/features/feedback/feedback.dart';
+import 'package:kozhi_admin/features/report_screen/report.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -19,7 +21,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   late TabController _tabController;
   @override
   void initState() {
-    _tabController = TabController(length: 4, vsync: this);
+    _tabController = TabController(length: 6, initialIndex: 0, vsync: this);
     _tabController.addListener(() {
       setState(() {});
     });
@@ -32,7 +34,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+            padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 40),
             child: Material(
               color: Theme.of(context).colorScheme.onPrimary,
               shape: RoundedRectangleBorder(
@@ -90,13 +92,26 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                       },
                       isSelected: _tabController.index == 3,
                     ),
+                    CustomDashboardButton(
+                      label: 'Feedback',
+                      onTap: () {
+                        _tabController.animateTo(4);
+                      },
+                      isSelected: _tabController.index == 4,
+                    ),
+                    CustomDashboardButton(
+                      label: 'Report',
+                      onTap: () {
+                        _tabController.animateTo(5);
+                      },
+                      isSelected: _tabController.index == 5,
+                    ),
                     SizedBox(
                       width: 300,
                       child: CustomSearch(onSearch: (p0) {}),
                     ),
-                    CustomHomeSingleButton(icon: Icons.message_outlined),
 
-                    CustomHomeSingleButton(icon: Icons.report_outlined),
+                    CustomHomeSingleButton(icon: Icons.light_mode),
                   ],
                 ),
               ),
@@ -106,7 +121,14 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
             child: TabBarView(
               physics: const NeverScrollableScrollPhysics(),
               controller: _tabController,
-              children: [Dashboard(), Order(), Users(), Shops()],
+              children: [
+                Dashboard(),
+                Order(),
+                Users(),
+                Shops(),
+                Report(),
+                FeedbackScreen(),
+              ],
             ),
           ),
         ],

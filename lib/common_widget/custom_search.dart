@@ -24,10 +24,6 @@ class _CustomSearchState extends State<CustomSearch> {
   void initState() {
     _searchController.addListener(() {
       setState(() {});
-      // if (_searchController.text.trim().isEmpty && _lastValue.isNotEmpty) {
-      //   widget.onSearch(null);
-      //   _lastValue = '';
-      // }
     });
     super.initState();
   }
@@ -41,68 +37,34 @@ class _CustomSearchState extends State<CustomSearch> {
           borderRadius: BorderRadius.circular(8),
           side: BorderSide(color: Theme.of(context).colorScheme.outline),
         ),
-        child: Row(
-          children: [
-            Expanded(
-              child: TextFormField(
-                controller: _searchController,
-                obscureText: false,
-                style:
-                    widget.textStyle ?? Theme.of(context).textTheme.titleSmall,
-                onFieldSubmitted: (value) {
-                  _lastValue = value.trim();
-                  widget.onSearch(_lastValue);
-                  setState(() {});
-                },
-                decoration: InputDecoration(
-                  hintStyle: widget.textStyle,
-                  contentPadding: const EdgeInsets.symmetric(
-                    horizontal: 15,
-                    vertical: 12,
-                  ),
-                  filled: false,
-                  isCollapsed: true,
-                  border: InputBorder.none,
-                  enabledBorder: InputBorder.none,
-                  errorBorder: InputBorder.none,
-                  focusedBorder: InputBorder.none,
-                  disabledBorder: InputBorder.none,
-                  focusedErrorBorder: InputBorder.none,
-                  hintText: 'Search',
-                ),
-              ),
-            ),
-            SizedBox(width: _searchController.text.trim().isNotEmpty ? 15 : 0),
-            InkWell(
-              hoverColor: Colors.transparent,
-              focusColor: Colors.transparent,
-              splashColor: Colors.transparent,
-              highlightColor: Colors.transparent,
-              onTap: () {
-                _lastValue = _searchController.text.trim();
-                widget.onSearch(_lastValue);
-                setState(() {});
-              },
-              child: const Icon(Icons.search, color: primaryColor),
-            ),
-            SizedBox(width: _lastValue.isNotEmpty ? 15 : 0),
-            _lastValue.isNotEmpty
-                ? InkWell(
-                  hoverColor: Colors.transparent,
-                  focusColor: Colors.transparent,
-                  splashColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                  onTap: () {
-                    _lastValue = '';
-                    _searchController.clear();
-                    widget.onSearch(null);
-                    setState(() {});
-                  },
-                  child: const Icon(Icons.clear, color: Colors.grey),
-                )
-                : const SizedBox(),
-            const SizedBox(width: 15),
-          ],
+        child: TextFormField(
+          controller: _searchController,
+          style: widget.textStyle ?? Theme.of(context).textTheme.titleSmall,
+          onFieldSubmitted: (value) {
+            _lastValue = value.trim();
+            widget.onSearch(_lastValue);
+            setState(() {});
+          },
+          decoration: InputDecoration(
+            hintText: 'Search',
+            hintStyle: widget.textStyle,
+            contentPadding: const EdgeInsets.symmetric(vertical: 12),
+            isCollapsed: true,
+            border: InputBorder.none,
+            prefixIcon: Icon(Icons.search, color: primaryColor),
+            suffixIcon:
+                _searchController.text.trim().isNotEmpty
+                    ? IconButton(
+                      icon: const Icon(Icons.clear, color: Colors.grey),
+                      onPressed: () {
+                        _lastValue = '';
+                        _searchController.clear();
+                        widget.onSearch(null);
+                        setState(() {});
+                      },
+                    )
+                    : null,
+          ),
         ),
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kozhi_admin/theme/light_theme.dart';
 
 class CustomHomeSingleButton extends StatelessWidget {
   final IconData icon;
@@ -7,7 +8,8 @@ class CustomHomeSingleButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Theme.of(context).colorScheme.onPrimary,
+      color: Theme.of(context).colorScheme.secondary,
+
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
         side: const BorderSide(
@@ -18,7 +20,7 @@ class CustomHomeSingleButton extends StatelessWidget {
 
       child: Padding(
         padding: EdgeInsets.all(12),
-        child: Icon(icon, color: Colors.white, size: 25),
+        child: Icon(icon, color: primaryColor, size: 22),
       ),
     );
   }
